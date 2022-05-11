@@ -3,13 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
-
-    <fragment
-        android:id="@+id/nav_home"
-        android:name="com.diplomado.laboratorio2.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+    app:startDestination="@id/nav_login">
 
     <fragment
         android:id="@+id/nav_login"
@@ -21,11 +15,24 @@
         android:id="@+id/nav_restaurantes"
         android:name="com.diplomado.laboratorio2.ui.restaurantes.RestaurantesFragment"
         android:label="@string/menu_restaurantes"
-        tools:layout="@layout/fragment_restaurantes" />
+        tools:layout="@layout/fragment_restaurantes" >
+        <action
+            android:id="@+id/action_nav_restaurantes_to_detalleRestauranteFragment"
+            app:destination="@id/detalleRestauranteFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_registro"
         android:name="com.example.laboratorio2.ui.registro.RegistroFragment"
-        android:label="RegistroFragment"
+        android:label="@string/menu_registro"
         tools:layout="@layout/fragment_registro"/>
+    <fragment
+        android:id="@+id/detalleRestauranteFragment"
+        android:name="com.diplomado.laboratorio2.ui.restaurantes.DetalleRestauranteFragment"
+        android:label="Detalle"
+        tools:layout="@layout/fragment_detalle_restaurante" >
+        <argument
+            android:name="restaurante"
+            app:argType="com.diplomado.laboratorio2.model.Restaurante" />
+    </fragment>
 </navigation>

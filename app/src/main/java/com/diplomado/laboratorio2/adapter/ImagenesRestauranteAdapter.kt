@@ -1,12 +1,12 @@
 package com.diplomado.laboratorio2.adapter
 
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ProgressBar
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -14,32 +14,21 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.diplomado.laboratorio2.R
+import com.diplomado.laboratorio2.databinding.ItemImagenRestauranteBinding
 import com.diplomado.laboratorio2.databinding.ItemRestauranteBinding
-import com.diplomado.laboratorio2.model.Restaurante
 
-
-class RestauranteAdapter(
-    private var restaurantes: List<Restaurante>,
-    private var setOnClickListener: (Restaurante) -> Unit
+class ImagenesRestauranteAdapter(
+    private var imagenes: List<String>,
 ):
-    RecyclerView.Adapter<RestauranteAdapter.ViewHolder>() {
+    RecyclerView.Adapter<ImagenesRestauranteAdapter.ViewHolder>() {
 
     class ViewHolder(val item: View): RecyclerView.ViewHolder(item) {
-        val tvNombre = item.findViewById<TextView>(R.id.tvNombre)
-        val tvCalificacion = item.findViewById<TextView>(R.id.tvCalificacion)
-        val tvAnio = item.findViewById<TextView>(R.id.tvAnio)
-        val tvCostoPromedio = item.findViewById<TextView>(R.id.tvCostoPromedio)
-        val imageView = item.findViewById<ImageView>(R.id.imgRestaurante)
+        val imageView = item.findViewById<ImageView>(R.id.detalleImagen)
         val loadingWheel = item.findViewById<ProgressBar>(R.id.loading_wheel)
 
-        fun bindTitular(restaurante: Restaurante) {
-            tvNombre.text = restaurante.nombre
-            tvCalificacion.text = restaurante.calificacion.toString()
-            tvAnio.text = restaurante.anio.toString()
-            tvCostoPromedio.text = restaurante.costoPromedio.toString()
-
+        fun bindTitular(imagen: String) {
             loadingWheel.visibility = View.VISIBLE
-            Glide.with(item.context).load(restaurante.imagenes[0]).listener(object:
+            Glide.with(item.context).load(imagen).listener(object:
                 RequestListener<Drawable> {
                 override fun onLoadFailed(
                     e: GlideException?,
@@ -67,16 +56,13 @@ class RestauranteAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var binding = ItemRestauranteBinding.inflate(LayoutInflater.from(parent.context))
+        var binding = ItemImagenRestauranteBinding.inflate(LayoutInflater.from(parent.context))
         return ViewHolder(binding.root)
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val restaurante = restaurantes[position]
-        holder.bindTitular(restaurante)
-        holder.item.setOnClickListener {
-            setOnClickListener(restaurante)
-        }
+        val imagen = imagenes[position]
+        holder.bindTitular(imagen)
     }
-    override fun getItemCount() = restaurantes.size
+    override fun getItemCount() = imagenes.size
 
 }
