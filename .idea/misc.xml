@@ -11,6 +11,12 @@
         <entry key="..\:/Users/Coolermaster/AndroidStudioProjects/Laboratorio2/app/src/main/res/layout/item_restaurante.xml" value="0.33" />
         <entry key="..\:/Users/Coolermaster/AndroidStudioProjects/Laboratorio2/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Coolermaster/AndroidStudioProjects/Laboratorio2/app/src/main/res/menu/main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Ivan/AndroidStudioProjects/Restaurantes/app/src/main/res/layout/fragment_detalle_restaurante.xml" value="0.33" />
+        <entry key="..\:/Users/Ivan/AndroidStudioProjects/Restaurantes/app/src/main/res/layout/fragment_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Ivan/AndroidStudioProjects/Restaurantes/app/src/main/res/layout/fragment_registro.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Ivan/AndroidStudioProjects/Restaurantes/app/src/main/res/layout/fragment_restaurantes.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/Ivan/AndroidStudioProjects/Restaurantes/app/src/main/res/layout/item_imagen_restaurante.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Ivan/AndroidStudioProjects/Restaurantes/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
